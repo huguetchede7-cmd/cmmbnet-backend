@@ -17,6 +17,14 @@ import { LogHelpers } from './app/helpers/LogHelpers';
 import * as Sentry from "@sentry/node";
 
 const app = express()
+app.get('/api/keepalive', async (req: Request, res: Response) => {
+  try {
+    await sequelizeDB.query('SELECT 1')
+    res.json({ ok: true })
+  } catch (e) {
+    res.status(500).json({ ok: false })
+  }
+});
 const port = process.env.PORT || 3001
 const responseJson = { ...ApiHelpers.DEFAULT_RESPONSE_JSON }
 
