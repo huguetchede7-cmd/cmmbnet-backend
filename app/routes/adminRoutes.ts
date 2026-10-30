@@ -153,7 +153,7 @@ router.get('/app/dashboard/stats', async (req, res) => {
 })
 
 // ================= TRANSACTIONS =================
-router.get("/transactions", async (req, res) => {
+router.get("/app/transactions", async (req, res) => {
   const responseJson = { ...apiHelpers.DEFAULT_RESPONSE_JSON };
 
   try {
